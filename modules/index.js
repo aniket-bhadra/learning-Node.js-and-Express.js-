@@ -10,5 +10,5 @@ const name = require('./names')
 // console.log(name);
 
 module.exports = printingNames;
-console.log(module);
+// console.log(module);
 
