@@ -1,9 +1,11 @@
-const _ = require("lodash");
-// const a = require("lodash");
+const http = require("http");
 
-const items = [1, [2, 3, [3, [4]]]];
+const server = http.createServer((req, res) => {
+  console.log("hey hey got response");
+  res.end("hello darling");
+});
 
-const newItmes = _.flattenDeep(items);
-
-console.log(newItmes);
-console.log("heellssso");
+server.listen(5000);
+//listen is a async fun, 
+//process created by listen stays alive
+//so event loop just waiting for those request to come in, & once they come in it wil run that callback 
