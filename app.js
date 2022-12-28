@@ -24,6 +24,16 @@ const getFile = (path) => {
   });
 };
 
-getFile("./content/first.txt")
-  .then((result) => console.log(result))
-  .catch((error) => console.log(error));
+// getFile("./content/first.txt")
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log(error));
+
+
+//async await
+const getResult = async () => {
+  const first = await getFile('./content/first.txt');
+  const second =  await getFile('./content/second.txt');
+  console.log(first, second);
+}
+
+getResult();
