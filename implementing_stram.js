@@ -1,5 +1,5 @@
 const { createReadStream } = require("fs");
-const { result } = require("lodash");
+
 
 // const stream = createReadStream("./content/BIG.txt");
 
