@@ -45,3 +45,25 @@ const getResult = async () => {
 };
 
 getResult();
+
+
+//4.using module
+const { readFile, writeFile } = require("fs");
+const util = require("util");
+const readFilePromise = util.promisify(readFile);
+const writeFilePromie = util.promisify(writeFile);
+
+const data = async () => {
+  try {
+    const first = await readFilePromise("./content/first.txt", "utf-8");
+    const second = await readFilePromise("./content/second.txt", "utf-8");
+    await writeFilePromie(
+      "./content/new_myfile.txt",
+      `here is the sum:  ${first} and   ${second}`
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+data();
