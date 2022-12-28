@@ -1,4 +1,4 @@
-const { readFile } = require("fs");
+// const { readFile } = require("fs");
 //1.normal approach
 // readFile('./content/first.txt', 'utf-8', (err, result) => {
 //   if(err) {
@@ -13,16 +13,16 @@ const { readFile } = require("fs");
 
 
 //promisify
-const getFile = (path) => {
-  return new Promise((resolve, reject) => {
-    readFile(path, "utf-8", (err, result) => {
-      if (err) {
-        reject("erro errror");
-      }
-      resolve(result);
-    });
-  });
-};
+// const getFile = (path) => {
+//   return new Promise((resolve, reject) => {
+//     readFile(path, "utf-8", (err, result) => {
+//       if (err) {
+//         reject("erro errror");
+//       }
+//       resolve(result);
+//     });
+//   });
+// };
 
 
 //2.with then()
@@ -33,33 +33,55 @@ const getFile = (path) => {
 
 
 //3.async await
-const getResult = async () => {
-  try {
-    const first = await getFile("../content/first.txt");
-    const second = await getFile("./content/second.txt");
-    console.log(first, second);
-  } 
-  catch (error) {
-   console.log(error);
-  }
-};
+// const getResult = async () => {
+//   try {
+//     const first = await getFile("../content/first.txt");
+//     const second = await getFile("./content/second.txt");
+//     console.log(first, second);
+//   } 
+//   catch (error) {
+//    console.log(error);
+//   }
+// };
 
-getResult();
+// getResult();
 
 
 //4.using module
-const { readFile, writeFile } = require("fs");
-const util = require("util");
-const readFilePromise = util.promisify(readFile);
-const writeFilePromie = util.promisify(writeFile);
+// const { readFile, writeFile } = require("fs");
+// const util = require("util");
+// const readFilePromise = util.promisify(readFile);
+// const writeFilePromie = util.promisify(writeFile);
+
+// const data = async () => {
+//   try {
+//     const first = await readFilePromise("./content/first.txt", "utf-8");
+//     const second = await readFilePromise("./content/second.txt", "utf-8");
+//     await writeFilePromie(
+//       "./content/new_myfile.txt",
+//       `here is the sum:  ${first} and   ${second}`
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// data();
+
+
+
+//5.directly promisify
+const { readFile, writeFile } = require("fs").promises;
+
 
 const data = async () => {
   try {
-    const first = await readFilePromise("./content/first.txt", "utf-8");
-    const second = await readFilePromise("./content/second.txt", "utf-8");
-    await writeFilePromie(
+    const first = await readFile("./content/first.txt", "utf-8");
+    const second = await readFile("./content/second.txt", "utf-8");
+    await writeFile(
       "./content/new_myfile.txt",
-      `here is the sum:  ${first} and   ${second}`
+      `here is the sum:  ${first} and   ${second}`,
+      {flag: 'a'}
     );
   } catch (error) {
     console.log(error);
