@@ -28,7 +28,16 @@
 //   console.log(req.user);
 // });
 
+//app.use() method always expect middleware as argument
 
+//there is 3 ways we can provide middleware
+//our own / express built in / third party
+
+//so in built in express middleware & thirdParty middleware we don't need setup our funciton, we just to use it
+
+//express built in---->
+//app.use(express.static('./public'))
+//so in epxresss we've built in middleware with name of static, & this static method is looking for our public folder & it basically places all the contents of public folder as our static assets, so that they r publically available
 
 // app.listen(5000, () => {
 //   console.log("server is listening on 5000......");
