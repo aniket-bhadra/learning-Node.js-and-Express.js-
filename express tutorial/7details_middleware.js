@@ -21,6 +21,12 @@
 //   res.send("item page");
 // });
 
+//if you just want to provide middleware on specific route instead of all route then omit that app.use([logger, authorize]); & pass that in specific route like--
+
+// app.get("/api/products",[logger, authorize], (req, res) => {
+//   res.send("product page");
+//   console.log(req.user);
+// });
 
 
 
