@@ -7,6 +7,16 @@ const logger = (req,res,next) => {
   const url = req.url;
   const time = new Date().getFullYear();
   console.log(method, url, time);
+  //when we working with middleware has to pass either response to terminate the whole cycle & sending your own data
+  // or next() to roll on the cycle
+
+
+  // res.send('testing') //this how we terminate the whole cycle and send our own data
+
+
+  //and this how we roll on the cylcle by passing it on the next middleware
+  next()
+
 
 };
 
