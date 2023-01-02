@@ -85,3 +85,19 @@ app.post("/api/people", (req, res) => {
 //so technically result wise this way appending the list we can do it, only with fortend but just to learn how server handle the resquest we did this, this way
 
 //& in this process we implement how to send error if the name is not entered, how to aceess the user data in server side, since data is sent to server as json, so how to deal json incomming data, & lastly how send that data as json.
+
+
+//10. but with this setup whenever we create a route, then have to spend a lot time to build frontend to test that route, so this is very cubersome process so for this there is better option to do this, use a tool-- postman, this help us to quickly test our apis
+
+//11.lets test the postman with another route
+
+app.post("/api/postman/people", (req, res) => {
+    const { name } = req.body;
+    if (!name) {
+      return res
+        .status(404)
+        .json({ success: false, msg: "please prvide the name" });
+    }
+  
+    res.status(201).json({ success: true, data: [...people, name] });
+  });
