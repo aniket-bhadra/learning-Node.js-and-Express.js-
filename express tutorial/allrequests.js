@@ -47,3 +47,7 @@ app.post("/login", (req, res) => {
   
     res.status(401).send("Please provide your name");
   });
+
+
+
+  //6.imp thing keep in mind---> since the index.html is hosted in same server so here <form action="/login" method="POST"> this will do the job,but if this index.html or your fontend application is hosted in diff server then we would have to provide the full path along with domain then add /login & method - post
