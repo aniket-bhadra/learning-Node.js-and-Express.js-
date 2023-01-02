@@ -78,3 +78,10 @@ app.post("/api/people", (req, res) => {
     }
     res.status(201).json({ success: true, person: name });
   });
+
+
+  //now with this setup we can't persisted with data, since database is not connected and wirttingfile is not used in most places.so here what ever data is send to server, we just take that & send to frontend, & In frontend side we append the new name in the list. so if the page is reloaded we wll lost newly entered data.
+
+//so technically result wise this way appending the list we can do it, only with fortend but just to learn how server handle the resquest we did this, this way
+
+//& in this process we implement how to send error if the name is not entered, how to aceess the user data in server side, since data is sent to server as json, so how to deal json incomming data, & lastly how send that data as json.
