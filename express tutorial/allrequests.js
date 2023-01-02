@@ -101,3 +101,34 @@ app.post("/api/postman/people", (req, res) => {
   
     res.status(201).json({ success: true, data: [...people, name] });
   });
+
+  
+
+  //12.put method
+//by convention in put method , we provide the id in the url (basically we add that in route parameter) for the item to edit or update
+//then provide the value in body--> what to update with
+app.put("/api/people/:id", (req, res) => {
+    const { id } = req.params; //so this the id,we get from route params
+    const { name } = req.body; //so this the body, which will replace the existing item
+    // console.log(id, name)
+    
+    const updatedItem = people.find((element) => element.id === Number(id));
+  
+    // console.log(updatedItem);
+  
+    if(updatedItem){
+      updatedItem.name= name;
+     return res.status(200).json({success: true, data: people})
+    }
+   
+    // res.status(200).send("hey your put request has been succcesfull")
+    return res.status(404).json({success: false, msg: "your requestd id does not exist"})
+  
+  
+  });
+
+
+
+app.listen(5000, () => {
+    console.log("server is listening on 5000......");
+  });
