@@ -31,6 +31,19 @@ app.use(express.urlencoded({ extended: false }));
 //2.post method
 // app.post("/login", (req, res) => {
 
-// 
+// //4.now here we can acess that info
+//   console.log(req.body);
+//   res.send("POST successful");
 //   res.send("POST");
 // });
+
+
+//5.now we can use that info in server side   (in javascript example or api call example in this stage instead of using this value this way in server side, we will manipulate the people array)
+app.post("/login", (req, res) => {
+    const { name } = req.body;
+    if (name) {
+      return res.status(200).send(`hey welcome ${name}`);
+    }
+  
+    res.status(401).send("Please provide your name");
+  });
