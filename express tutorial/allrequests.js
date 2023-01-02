@@ -26,6 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 
 
 
+//8.now handle the incomming json data
+//with another middleware
+app.use(express.json());
+
+//when we working with forms then we dont't  need this step, we simple access the info in req.body if the express.urlencoded middleware is provided but when working with api call (basically straight up http request) then along with that middleware express.urlencoded we have to provide another middleware which is this--above ---->express.json(), only after this we can acess the info in req.body
 
 
 //2.post method
@@ -51,3 +56,25 @@ app.post("/login", (req, res) => {
 
 
   //6.imp thing keep in mind---> since the index.html is hosted in same server so here <form action="/login" method="POST"> this will do the job,but if this index.html or your fontend application is hosted in diff server then we would have to provide the full path along with domain then add /login & method - post
+
+
+  //7.now goto another way of handling post request-- with javascript-->
+//basically api call, so here i handle the that api call
+// app.post("/api/people", (req, res) => {
+//   console.log("sucess");
+//   res.status(201).send("success");
+// });
+
+//9.now use that info in req.body & manipulate the people array
+
+app.post("/api/people", (req, res) => {
+    const { name } = req.body;
+    // console.log(req.body)
+  
+    if (!name) {
+      return res
+        .status(404)
+        .json({ success: false, msg: "please prvide the name" });
+    }
+    res.status(201).json({ success: true, person: name });
+  });
