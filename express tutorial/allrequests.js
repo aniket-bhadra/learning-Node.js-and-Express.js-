@@ -143,6 +143,9 @@ app.delete('/api/people/:id', (req,res)=> {
   
   })
 
+  
+  //14.we r not persisted with data, so whenever server restarts people array re gets its value, so if i delete id:1, and reinitiate the server the id:1 will be back.coz- we r not persisted with data, so what ever operation we perfrom does not matter if server reinitiate all data will be back.
+
 
 
 app.listen(5000, () => {
