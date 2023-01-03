@@ -64,4 +64,32 @@
 
 // module.exports = router;
 
+//2.now use controllers to make this file more cleaner
+const express = require("express");
+
+const router = express.Router();
+//this is a router instance that going to takes care of routing
+
+const {
+  getPeople,
+  createPerson,
+  createPersonPostman,
+  updatePerson,
+  deletePerson,
+} = require("../controllers/people");
+
+// router.get("/", getPeople);
+
+// router.post("/", createPerson);
+
+// router.post("/postman", createPersonPostman);
+
+// router.put("/:id", updatePerson);
+
+// router.delete("/:id", deletePerson);
+
+
+
+
+
 
