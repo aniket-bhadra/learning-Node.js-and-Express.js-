@@ -92,4 +92,11 @@ const {
 
 
 
+//another way of setting routes, where functionality will remain the same
+//just chain our methods one after another if route or url is same
 
+router.route("/").get(getPeople).post(createPerson);
+router.route("postman").post(createPersonPostman);
+router.route("/:id").put(updatePerson).delete(deletePerson);
+
+module.exports = router;
