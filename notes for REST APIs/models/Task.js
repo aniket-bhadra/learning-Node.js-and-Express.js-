@@ -28,4 +28,7 @@ const TaskSchema = new mongoose.Schema({
 
 //these are the built in validators properties
 
+module.exports = mongoose.model("Task", TaskSchema);
+//model looking for 2 things 1.name, 2.schema
 
+//now go to the controllers & start using the model
