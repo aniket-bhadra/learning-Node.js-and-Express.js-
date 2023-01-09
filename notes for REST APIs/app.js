@@ -41,3 +41,8 @@ const start = async () => {
 
 start();
 
+
+
+
+//this is the basic structure of how all things should be in sync, now have to define logic for controller functions to work  proeprly
+
