@@ -27,7 +27,11 @@ app.use("/api/v1/tasks", tasks);
 //app.delete('api/v1/tasks/:id')  ----------delete task
 
 //setting up custom 404
-app.use(notFound);
+app.use(notFound); //we written this here instead of at the end of this app.js, coz - i want if user requested route does not exist thn this middleware fun should execute, not the errorHadnlermiddleware.
+//errorHandlerMiddlerware should excute only when the error comes from the tasks middleware
+
+//setting up custom error handler
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
 
