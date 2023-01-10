@@ -71,7 +71,35 @@
 //   }
 // };
 
+// const updateTask = async (req, res) => {
+//   //for update task we need ---------->    1.id for that task, 2.body for that task
+//   //body is sent form frontend, if no  body is sent form fornt end then below in testing-->,  data property is ----> {}
 
+//   try {
+//     const { id: taskID } = req.params;
+//     // testing------------------------------------->>>>>>----> res.status(200).json({ id: taskID, data: req.body });
+
+//     // const task = await Task.findOneAndUpdate({ _id: taskID }, req.body);
+//     //withgout 3rd argument-----this returns a old value before update. and all the validation which we imposed while buling model, like required, trim, ... will also not work while update, means user can update name with empty string.so we need to provdie that 3rd argument in findOneAndUpdate() method
+
+//     //so to do that----------->
+//     const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
+//       new: true,
+//       runValidators: true,
+
+//       // overwrite: true, -----------------> this is used in put method
+//     });
+
+//     if (!task) {
+//       return res
+//         .status(404)
+//         .json({ msg: `no task exist wih the id: ${taskID}` });
+//     }
+//     res.status(200).json({ task });
+//   } catch (error) {
+//     res.status(500).json({ msg: error });
+//   }
+// };
 
 // module.exports = {
 //   getAllTasks,
