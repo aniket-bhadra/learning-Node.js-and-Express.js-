@@ -144,3 +144,14 @@ const getTask = asyncWrapper(async (req, res, next) => {
   }
   res.status(200).json({ task });
 });
+
+
+const deleteTask = asyncWrapper(async (req, res) => {
+  const { id: taskID } = req.params;
+  const task = await Task.findOneAndDelete({ _id: taskID });
+  if (!task) {
+    return next(createCustomError(`no task exist wih the id: ${taskID}`, 404));
+  }
+
+  res.status(200).json({ task });
+});
