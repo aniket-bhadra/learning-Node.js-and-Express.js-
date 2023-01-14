@@ -20,7 +20,21 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorMiddleware = require("./middleware/error-handler");
 
 
+//handling json incomming data
+app.use(express.json());
 
+//testing route
+app.get("/", (req, res) => {
+  res.send('<h1>Store API</h1><a href="/api/v1/products">products route</a>');
+});
+
+//setting products route
+app.use("/api/v1/products", productsRouter);
+
+
+//error middleware
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
 
 //now setup the port. then connect to the database & start server
 
