@@ -31,6 +31,9 @@ const productSchema = new mongoose.Schema({
     },
   },
 });
+
+module.exports = mongoose.model("Product", productSchema);
+
 //createdAt:---------
 //in mongoose there is date type, & we can actully set the current time by invoking Date.now(), so everytime we'll create new product if, we don't supply createdAt, then by default it is just going to be set current time
 
