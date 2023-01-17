@@ -25,6 +25,15 @@ const Product = require("../models/product");
 
 const getAllProductsStatic = async (req, res) => {
   // const products = await Product.find({ featured: "false" });  if u pass false as string, find() still get u the all the products with featured: false as Boolean
+   //testing regex query operator
+  // const search = "ab";
+  // const products = await Product.find({
+  //   name: {
+  //     $regex: search,
+  //     $options: "i",
+  //   },
+  // });
+   res.status(200).json({ products, nbHits: products.length });
   
   }
   
