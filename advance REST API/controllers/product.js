@@ -20,3 +20,18 @@
 // //so now if mongoose throw an error that goes to--error-handler.js, & if we throw an error that also goes to error-handler.js
 
 //------------->>>>>>-->>>>>>>>>>>>>>>>-real logic setted up in controller fun-----------------------------
+
+const Product = require("../models/product");
+
+const getAllProductsStatic = async (req, res) => {
+  // const products = await Product.find({ featured: "false" });  if u pass false as string, find() still get u the all the products with featured: false as Boolean
+  
+  }
+  
+  const getAllProducts = async (req, res) => {}
+  
+  module.exports = {
+  getAllProducts,
+  getAllProductsStatic,
+};
+
