@@ -28,7 +28,20 @@ const getAllProductsStatic = async (req, res) => {
   
   }
   
-  const getAllProducts = async (req, res) => {}
+  const getAllProducts = async (req, res) => {
+  
+  const { featured } = req.query;
+  const queryObject = {};
+  // console.log(typeof featured); -------> string
+  if (featured) {
+    queryObject.featured = featured === "true" ? true : false; //if u pass dierectly queryObject.featured = featured, it still going to work but here we do this explictly just to be clear
+  }
+  let result = Product.find(queryObject);
+  const products = await result;
+  res.status(200).json({ nbHits: products.length, products });
+  
+  
+  }
   
   module.exports = {
   getAllProducts,
