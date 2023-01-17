@@ -33,6 +33,10 @@ const getAllProductsStatic = async (req, res) => {
   //     $options: "i",
   //   },
   // });
+    //testing numeric filters with query operators
+  const products = await Product.find({ price: { $gt: 30 } })
+    .sort("price")
+    .select("name price");
    res.status(200).json({ products, nbHits: products.length });
   
   }
