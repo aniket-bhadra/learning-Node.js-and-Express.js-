@@ -68,6 +68,7 @@ const getAllProductsStatic = async (req, res) => {
       "<": "$lt",
       "<=": "$lte",
     };
+     const regex = /\b(<|>|>=|=|<=)\b/g;
     }
   let result = Product.find(queryObject);
   const products = await result;
