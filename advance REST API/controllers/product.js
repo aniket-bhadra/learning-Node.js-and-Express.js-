@@ -73,6 +73,16 @@ const getAllProductsStatic = async (req, res) => {
       regex,
       (match) => `-${operatorMap[match]}-`
     );
+        const options = ["price", "rating"];
+
+    filters.split(",").forEach((item) => {
+      const [property, operator, value] = item.split("-");
+      if (options.includes(property)) {
+        queryObject[property] = {
+          [operator]: Number(value),
+        };
+      }
+    });
     }
   let result = Product.find(queryObject);
   const products = await result;
