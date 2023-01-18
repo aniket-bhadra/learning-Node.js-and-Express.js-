@@ -69,6 +69,10 @@ const getAllProductsStatic = async (req, res) => {
       "<=": "$lte",
     };
      const regex = /\b(<|>|>=|=|<=)\b/g;
+      let filters = numericFilters.replace(
+      regex,
+      (match) => `-${operatorMap[match]}-`
+    );
     }
   let result = Product.find(queryObject);
   const products = await result;
