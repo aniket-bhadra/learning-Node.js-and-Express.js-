@@ -43,7 +43,7 @@ const getAllProductsStatic = async (req, res) => {
   
   const getAllProducts = async (req, res) => {
   
-  const { featured, company, name } = req.query;
+  const { featured, company, name, numericFilters } = req.query;
   const queryObject = {};
   // console.log(typeof featured); -------> string
   if (featured) {
@@ -58,6 +58,17 @@ const getAllProductsStatic = async (req, res) => {
       $options: "i",
     };
   }
+  
+  
+  if (numericFilters) {
+    const operatorMap = {
+      ">": "$gt",
+      ">=": "$gte",
+      "=": "$eq",
+      "<": "$lt",
+      "<=": "$lte",
+    };
+    }
   let result = Product.find(queryObject);
   const products = await result;
   res.status(200).json({ nbHits: products.length, products });
