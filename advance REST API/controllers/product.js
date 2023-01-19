@@ -47,7 +47,7 @@ const getAllProductsStatic = async (req, res) => {
   
   const getAllProducts = async (req, res) => {
   
-  const { featured, company, name, numericFilters } = req.query;
+  const { featured, company, name, numericFilters, sort } = req.query;
   const queryObject = {};
   // console.log(typeof featured); -------> string
   if (featured) {
@@ -89,6 +89,20 @@ const getAllProductsStatic = async (req, res) => {
     });
     }
   let result = Product.find(queryObject);
+  
+  
+  
+    //find() retuns an query Object, & if u put await infront of it, u will get the list of product not that query object & sort should be called on that query object
+  if (sort) {
+    const sortList = sort.split(",").join(" ");
+    result = result.sort(sortList);
+  } else {
+    result = result.sort("createdAt");
+  }
+  
+  
+  
+  
   const products = await result;
   res.status(200).json({ nbHits: products.length, products });
   
