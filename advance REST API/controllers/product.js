@@ -37,10 +37,15 @@ const getAllProductsStatic = async (req, res) => {
     //testing sorting with multiple properties
   // const products = await Product.find({}).sort("-name price");
   
+  //testing selecting with multiple propreties
+  // const products = await Product.find({}).select("company")
+  
     //testing numeric filters with query operators
-  const products = await Product.find({ price: { $gt: 30 } })
-    .sort("price")
-    .select("name price");
+  //const products = await Product.find({ price: { $gt: 30 } })
+    //.sort("price")
+   // .select("name price");
+   
+   
    res.status(200).json({ products, nbHits: products.length });
   
   }
