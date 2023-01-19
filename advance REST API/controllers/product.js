@@ -40,6 +40,14 @@ const getAllProductsStatic = async (req, res) => {
   //testing selecting with multiple propreties
   // const products = await Product.find({}).select("company")
   
+  //testing limiting & skipping functionality
+  //basic sturcture
+  // const products = await Product.find({})
+  //   .sort("name")
+  //   .select("name price")
+  //   .limit(10)
+  //   .skip(5);
+  
     //testing numeric filters with query operators
   //const products = await Product.find({ price: { $gt: 30 } })
     //.sort("price")
