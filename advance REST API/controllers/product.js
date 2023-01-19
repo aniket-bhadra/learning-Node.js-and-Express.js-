@@ -106,6 +106,12 @@ const getAllProductsStatic = async (req, res) => {
   }
   
   
+    //fields
+  if (fields) {
+    const fieldsList = fields.split(",").join(" ");
+    result = result.select(fieldsList);
+  }
+  
   
   
   const products = await result;
