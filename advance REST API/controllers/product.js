@@ -52,7 +52,7 @@ const getAllProductsStatic = async (req, res) => {
   
   const getAllProducts = async (req, res) => {
   
-  const { featured, company, name, numericFilters, sort } = req.query;
+  const { featured, company, name, numericFilters, sort, fields } = req.query;
   const queryObject = {};
   // console.log(typeof featured); -------> string
   if (featured) {
