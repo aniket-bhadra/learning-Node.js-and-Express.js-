@@ -14,6 +14,6 @@ router.route("/dashboard").get(authMiddleware, dashboard);
 //so this way u can set up whatever amount of route we want, & infront of all of them we can just stick off that auth middleware, & all those routes will become protected
 //& that auth middleware will check for token if token not present, will sent the error response, if the token is succefully verified then we move to that protected route & access resources
 
-router.route("/logni").post(login);
+router.route("/login").post(login);
 
 module.exports = router;
