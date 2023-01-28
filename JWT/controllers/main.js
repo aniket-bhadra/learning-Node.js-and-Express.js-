@@ -55,4 +55,8 @@
 //     throw new CustomAPIError("No token provided", 401);
 //     //here it is just for demo, normally the error text here should be--invalid credentials to access the route with status code-401-authentication error , 400- bad request
 //   }
+
+//   //6 extract token-part from a header
+//   const token = authHeader.split(" ")[1];
+//   console.log(token);
 }
