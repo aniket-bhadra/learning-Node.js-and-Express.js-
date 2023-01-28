@@ -29,4 +29,11 @@
 //   //for demo, normally provided by DB
 //   const id = new Date().getDate();
 
+//   //2nd create a token
+//   //try to keep playload small, better exprience for user coz-- bigger the payload the more data u sending over the wire. as a result someone with bad internet connection the user experience might not be the best
+//   const token = jwt.sign({ id, username }, process.env.JWT_SECRET, {
+//     expiresIn: "30d",
+//   });
+//   //!!!!!here we used just for demo, in production for the secret string --- use long, complex & ungeuessble string value!!!
+
 }
