@@ -26,6 +26,7 @@
 //   if (!username || !password) {
 //     throw new CustomAPIError("Please provide email and password", 400);
 //   }
-
+//   //for demo, normally provided by DB
+//   const id = new Date().getDate();
 
 }
