@@ -43,4 +43,9 @@
 
 //}
 
-
+// //protected route
+// const dashboard = async (req, res) => {
+//   // console.log(req.headers);
+//   //4 receiving JWT from front end
+//   const authHeader = req.headers.authorization;
+}
