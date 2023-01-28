@@ -59,4 +59,24 @@
 //   //6 extract token-part from a header
 //   const token = authHeader.split(" ")[1];
 //   console.log(token);
+
+
+//   //7 verify the token weather it is valid or not
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     //if there is some kind of error, ex- token expired, .... it goes to catch block..
+
+//     //if we'll succssful then all the payload data will be decoded & store in this decoded varible
+//     // console.log(decoded);
+
+//     const luckyNumber = Math.floor(Math.random() * 100);
+//     res.status(200).json({
+//       msg: `hello, ${decoded.username}`,
+//       secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+//     });
+//   } catch (error) {
+//     //so here we thorw custom error if we unable to verify the token for whatever reasons
+//     throw new CustomAPIError("Not authorized to access this route", 401);
+//   }
+// };
 }
