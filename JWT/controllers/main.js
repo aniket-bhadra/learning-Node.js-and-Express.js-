@@ -36,4 +36,9 @@
 //   });
 //   //!!!!!here we used just for demo, in production for the secret string --- use long, complex & ungeuessble string value!!!
 
+//   //3rd after create & signed the token now send to front end
+//   res.status(200).json({ msg: "user created", token });
+//   // res.send("Fake Login/Register/Signup Route");
+// };
+
 }
