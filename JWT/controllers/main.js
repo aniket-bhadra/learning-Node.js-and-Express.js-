@@ -48,4 +48,11 @@
 //   // console.log(req.headers);
 //   //4 receiving JWT from front end
 //   const authHeader = req.headers.authorization;
+
+
+//   //5 checking the correct syntax of JWT
+//   if (!authHeader || !authHeader.startsWith("Bearer ")) {
+//     throw new CustomAPIError("No token provided", 401);
+//     //here it is just for demo, normally the error text here should be--invalid credentials to access the route with status code-401-authentication error , 400- bad request
+//   }
 }
