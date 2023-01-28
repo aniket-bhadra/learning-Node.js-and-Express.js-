@@ -11,3 +11,21 @@
 // const jwt = require("jsonwebtoken");
 
 // const CustomAPIError = require("../errors/custom-error");
+
+// const login = async (req, res) => {
+//   const { username, password } = req.body;
+//   console.log(username, password);
+
+//   //to check whether username & password is provided there are 3 options--
+//   //1.mongoose built in required validation, where if one property is set to--required, so, while adding data to database basically while calling Task.create(req.body), here if req.body is empty then the promise will be rejected, & with help of own wrapper or async-error package, when promise rejected then it goes to next error middleware, where we send error response.
+
+//   //2.setup entire additional layer of validation which is going to be sitting in front of all of our requests with help of package--joi
+
+//   //3.checking in controller for both of these values
+
+//   if (!username || !password) {
+//     throw new CustomAPIError("Please provide email and password", 400);
+//   }
+
+
+}
