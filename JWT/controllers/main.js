@@ -67,7 +67,7 @@
 //     //if there is some kind of error, ex- token expired, .... it goes to catch block..
 
 //     //if we'll succssful then all the payload data will be decoded & store in this decoded varible
-//     // console.log(decoded);
+//     // console.log(decded);
 
 //     const luckyNumber = Math.floor(Math.random() * 100);
 //     res.status(200).json({
@@ -80,3 +80,8 @@
 //   }
 // };
 }
+
+// module.exports = {
+//   login,
+//   dashboard,
+// };
