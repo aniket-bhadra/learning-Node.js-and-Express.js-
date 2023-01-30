@@ -87,3 +87,7 @@
 // };
 
 //---------------------------------------------->>>>>>>>>>>>--now refactored the above code with same functionality>>>>>>>
+const jwt = require("jsonwebtoken");
+
+// const CustomAPIError = require("../errors/custom-error");
+const { BadRequestError } = require("../errors");
