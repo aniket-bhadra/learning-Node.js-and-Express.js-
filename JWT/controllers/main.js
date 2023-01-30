@@ -85,3 +85,5 @@
 //   login,
 //   dashboard,
 // };
+
+//---------------------------------------------->>>>>>>>>>>>--now refactored the above code with same functionality>>>>>>>
