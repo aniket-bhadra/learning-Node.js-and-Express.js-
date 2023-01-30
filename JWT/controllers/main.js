@@ -95,7 +95,7 @@ const login = async (req, res) => {
   const { username, password } = req.body;
   // console.log(username, password);
 
-  if (!usernme || !password) {
+  if (!username || !password) {
     // throw new CustomAPIError("Please provide email and password", 400);
     throw new BadRequestError("Please provide email and password");
   }
