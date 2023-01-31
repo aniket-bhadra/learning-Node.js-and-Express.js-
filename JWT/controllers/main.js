@@ -109,6 +109,18 @@ const login = async (req, res) => {
   res.status(200).json({ msg: "user created", token });
 };
 
+//protected route
+const dashboard = async (req, res) => {
+  console.log(req.user);
+
+  const luckyNumber = Math.floor(Math.random() * 100);
+  res.status(200).json({
+    msg: `hello, ${req.user.username}`,
+    secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+  });
+};
+
+
 module.exports = {
   login,
   dashboard,
