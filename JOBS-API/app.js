@@ -9,7 +9,9 @@ const app = express();
 //connectdb
 const connectDB = require("./db/connect");
 
-
+//the best way to protect multiple routes is--
+//1.import the auth middleware
+const authenticateUser = require("./middleware/authentication");
 
 // import routers
 const authRouter = require("./routes/auth");
