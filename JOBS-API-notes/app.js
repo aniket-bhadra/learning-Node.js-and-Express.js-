@@ -27,7 +27,8 @@ const errorHandlerMiddleware = require("./middleware/error-handler");
 
 // routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobsRouter);
+//2.then pass it infront of all those routes that should be protected
+app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
