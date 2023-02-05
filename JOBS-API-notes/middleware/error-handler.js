@@ -14,10 +14,10 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     msg: err.message || "Something went wront try again later",
   };
 
-   if (err instanceof CustomAPIError) {
-     return res.status(err.statusCode).json({ msg: err.message });
- }
- 
+    // if (err instanceof CustomAPIError) {
+  //   return res.status(err.statusCode).json({ msg: err.message });
+  // }
+  //we will get the same result if this code is commented coz-- in the customError object we already checking ----> the error comming in is there a statusCode & is there a msg? based on that we manipulating that object and retunns a response, so here we don't need this if check without it we can handle our own custom errors
 
   if (err.name === "ValidationError") {
     customError.msg = Object.values(err.errors)
