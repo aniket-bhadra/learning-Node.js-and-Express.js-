@@ -38,3 +38,13 @@ UserSchema.pre("save", async function (next) {
   // next();
   //if we go without next() functionality still going to works
 });
+
+//mongoose middleware is works just like event listener,
+//so after creating a schema if u use pre or post, --- it is the syntax
+//then it works like---
+//schema.pre('save', funtion(next) {
+//do your stuff
+//next()
+//})
+
+//it means before we save the docoument the callback funtion inside pre will execute
