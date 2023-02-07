@@ -54,3 +54,15 @@ UserSchema.pre("save", async function (next) {
 //   console.log('%s has been saved', doc._id);
 // });
 //it means after the document saved this callback inside post will execute
+
+//this is mongoose schema instance method
+UserSchema.methods.createJWT = function () {
+  //inside this function we can access the document by unisng 'this', coz inside this function "this" always points to the document.
+  return jwt.sign(
+    { userId: this._id, name: this.name },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_LIFETIME,
+    }
+  );
+};
