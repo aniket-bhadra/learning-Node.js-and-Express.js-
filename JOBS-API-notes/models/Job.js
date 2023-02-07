@@ -37,4 +37,6 @@ const JobSchema = new mongoose.Schema(
 //so in ref: which model are we referencing , this way we will tie the job to the user
 
 //so here we specided the "required:" since we don't want to create a job without a user
-module..exports = mongoose.model("Job", JobSchema);
+
+module.exports = mongoose.model("Job", JobSchema);
+
