@@ -27,3 +27,14 @@ const UserSchema = new mongoose.Schema({
 
 //so before we setup the model here we use that mongoose middleware
 //here go with function defination instead of arrow funtion, that way "this" will be scoped to our document, so here inside this callback funtcion "this" alwayz gonna point to our document
+
+UserSchema.pre("save", async function (next) {
+  //so here 'this' will point to the document
+  // so before saving the document what we want to accomplish
+  //we want to hash the password
+
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
+  
+});
