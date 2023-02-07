@@ -24,3 +24,6 @@ const UserSchema = new mongoose.Schema({
     minLength: 6,
   },
 });
+
+//so before we setup the model here we use that mongoose middleware
+//here go with function defination instead of arrow funtion, that way "this" will be scoped to our document, so here inside this callback funtcion "this" alwayz gonna point to our document
