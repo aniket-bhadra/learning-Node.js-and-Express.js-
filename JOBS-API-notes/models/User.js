@@ -16,6 +16,7 @@ const UserSchema = new mongoose.Schema({
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       "Please provide valid email",
     ],
+    unique: true, //creates an unique index, its not a validator, so if i'm trying save a user but there is already an email in use, then i'll get the dublicate error msg
   },
   password: {
     type: String,
