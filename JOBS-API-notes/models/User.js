@@ -48,3 +48,9 @@ UserSchema.pre("save", async function (next) {
 //})
 
 //it means before we save the docoument the callback funtion inside pre will execute
+
+//same goes with post, if we use post here,
+// schema.post('save', function(doc) {
+//   console.log('%s has been saved', doc._id);
+// });
+//it means after the document saved this callback inside post will execute
