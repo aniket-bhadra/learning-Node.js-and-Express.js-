@@ -39,6 +39,9 @@
 
 // res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
 
+
+//here since we r sending username along with token, so we store this 2 things in frontend as object in local storage, so that if u refresh even then the app persisted its states, if u refresh still we can show the username in frontend & that user still access that home route without login again since the token is present in localstroage, so the state persisted even with reload, in frontend.
+
 // const login = async (req, res) => {
 //   res.send("login user");
 // };
