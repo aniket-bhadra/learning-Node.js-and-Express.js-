@@ -31,7 +31,7 @@ const register = async (req, res) => {
 
 res.status(StatusCodes.CREATED).json({ user });
 };
-  res.send("registered user");
+ 
 };
 
 
