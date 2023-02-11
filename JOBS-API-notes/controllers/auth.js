@@ -4,7 +4,7 @@ const { BadRequestError } = require("../errors");
 const bcrypt = require("bcryptjs");
 
 
-const login = async (req, res) => {
+const register = async (req, res) => {
   res.send("registered user");
 };
 
