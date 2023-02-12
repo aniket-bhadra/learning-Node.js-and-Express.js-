@@ -31,7 +31,7 @@ const createJob = async (req, res) => {
   const job = await Job.create(req.body);
   res.status(StatusCodes.CREATED).json({ job });
 };
-const updateJob = (req, res) => {
+const updateJob = async (req, res) => {
   const {
     body: { company, position },
     user: { userId },
