@@ -71,3 +71,10 @@ const deleteJob = async (req, res) => {
   res.status(StatusCodes.OK).send();
 };
 
+module.exports = {
+  getAllJobs,
+  getJob,
+  createJob,
+  updateJob,
+  deleteJob,
+};
