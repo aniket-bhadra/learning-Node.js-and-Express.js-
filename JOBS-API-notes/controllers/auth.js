@@ -66,4 +66,29 @@ const register = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token });
 };
 
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  //now 1st check wheather we got the right values for email & password?
+  if (!email || !password) {
+    throw new BadRequestError("Please provide email and password");
+  }
+
+  const user = await User.findOne({ email });
+
+  //then check is user exist?
+  if (user) {
+    throw new UnauthenticatedError("Invalid Credentials");
+  }
+  //if user exist, then check if the password is correct?
+  const isPasswordCorrect = await user.comparePassword(password);
+  if (!isPasswordCorrect) {
+    throw new UnauthenticatedError("Invalid Credentials");
+  }
+
+  //now if user & password both are correct then create a token & send to frontend
+  const token = user.createJWT();
+  res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
+};
+
 
