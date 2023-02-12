@@ -77,7 +77,7 @@ const login = async (req, res) => {
   const user = await User.findOne({ email });
 
   //then check is user exist?
-  if (user) {
+  if (!user) {
     throw new UnauthenticatedError("Invalid Credentials");
   }
   //if user exist, then check if the password is correct?
