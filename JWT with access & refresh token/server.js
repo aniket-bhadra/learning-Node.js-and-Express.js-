@@ -23,8 +23,9 @@ const posts = [
   },
 ];
 
-app.get("/posts", (req, res) => {
-  res.json({name: "hey" });
+app.get("/posts", authenticateToken, (req, res) => {
+  console.log(req.user);           //{ name: 'sahana', iat: 1675418873 }
+  res.json(posts.filter((post) => post.username === req.user.name));
 });
 
 
