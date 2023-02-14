@@ -11,7 +11,7 @@ const getData = () => {
   });
 };
 
-const checking = () => {
+const checking = async() => {
   try {
     data = await getData();
     return data;
