@@ -8,3 +8,7 @@ const app = express();
 
 const jwt = require("jsonwebtoken");
 app.use(express.json());
+
+app.listen(3000, () => {
+  console.log("server is listening to port 3000");
+});
