@@ -12,6 +12,19 @@ app.use(express.json());
 
 let refreshTokens = [];
 
+//this route used for creating new token
+app.post("/token", (req, res) => {
+  const refreshToken = req.body.token;
+  if (!refreshToken) return res.sendStatus(401);
+  if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
+  
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_KEY, (error, user) => {
+    if (error) return res.sendStatus(403);
+    const accessToken = generateAccessToken({ name: user.name });
+    res.json({ accessToken });
+  });
+});
+
 app.post("/login", (req, res) => {
   //here authenticate the user 1st
 
