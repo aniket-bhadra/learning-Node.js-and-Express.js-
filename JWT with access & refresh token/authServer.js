@@ -8,6 +8,10 @@ const app = express();
 const jwt = require("jsonwebtoken");
 app.use(express.json());
 
+//normaly we store refresh token in some form of database or in some form of redis cache, so this is not ideal coz everytime server restarts this value will be empty
+
+let refreshTokens = [];
+
 app.listen(4000, () => {
   console.log("server is listening to port 4000");
 });
