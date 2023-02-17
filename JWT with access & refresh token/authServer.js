@@ -27,6 +27,7 @@ app.post("/login", (req, res) => {
   refreshTokens.push(refreshToken);
   res.json({
     accessToken,
+    refreshToken,
   });
 });
 
