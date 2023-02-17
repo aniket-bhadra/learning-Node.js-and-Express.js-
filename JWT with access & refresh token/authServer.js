@@ -37,6 +37,12 @@ app.post("/token", (req, res) => {
   });
 });
 
+app.post("/logout", (req, res) => {
+  //normally we delete this refresh tokens from DB
+  refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
+  res.sendStatus(204);
+});
+
 app.post("/login", (req, res) => {
   //here authenticate the user 1st
 
