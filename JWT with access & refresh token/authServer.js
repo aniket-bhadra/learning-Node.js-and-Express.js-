@@ -12,6 +12,13 @@ app.use(express.json());
 
 let refreshTokens = [];
 
+
+
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOKEN_KEY, { expiresIn: "55s" });
+}
+//in real application expiresIn should be inbetween 10-30mins
+
 app.listen(4000, () => {
   console.log("server is listening to port 4000");
 });
