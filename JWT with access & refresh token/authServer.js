@@ -12,6 +12,24 @@ app.use(express.json());
 
 let refreshTokens = [];
 
+app.post("/login", (req, res) => {
+  //here authenticate the user 1st
+
+  //then create token
+  const username = req.body.username;
+  const user = {
+    name: username,
+  };
+  const accessToken = generateAccessToken(user);
+  const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_KEY);
+  //in refresh token we manually handle the expiration instead of letting jwt handle the expiration
+
+  refreshTokens.push(refreshToken);
+  res.json({
+    accessToken,
+  });
+});
+
 
 
 function generateAccessToken(user) {
